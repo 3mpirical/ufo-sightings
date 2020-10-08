@@ -1,0 +1,30 @@
+version: '3'
+services:
+  frontend:
+    container_name: ufo-frontend
+    build: ./app/frontend
+    working_dir: /app/frontend
+    volumes:
+      - ./app/frontend:/app/frontend
+      - /app/frontend/node_modules
+    ports:
+      - "3000:3000"
+    tty: true
+    depends_on:
+      - backend
+  db:
+    container_name: ufo-db
+    image: postgres
+    volumes:
+      - ./tmp/db:/var/lib/postgresql/data
+    environment:
+      POSTGRES_PASSWORD: password
+  backend:
+    container_name: ufo-backend
+    build: ./app/backend
+    volumes:
+      - ./app/backend:/app/backend
+    ports:
+      - "3001:3001"
+    depends_on:
+      - db

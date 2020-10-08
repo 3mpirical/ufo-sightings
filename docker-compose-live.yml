@@ -1,0 +1,33 @@
+version: '3'
+services:
+    # application:
+    # image:
+    # container_name:
+    # volumes:
+    # ports:
+    #   - "8080:80"
+    # depends_on:
+    #   - mysqldb
+  mysqldb:
+    image: mysql:8.0
+    container_name: mysqldb
+    command: mysqld --user=root --verbose
+    volumes:
+       - ./schemadump.sql:/docker-entrypoint-initdb.d/schemadump.sql
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_DATABASE: "test"
+      MYSQL_USER: "test"
+      MYSQL_PASSWORD: "test"
+      MYSQL_ROOT_PASSWORD: "root"
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+  sightings:
+    image: "doldroyd/ufo-sighting:firstload"
+    environment:
+      ENDPOINT: http://web:5000/sighting
+  #web:
+  #  build: .
+  #  ports:
+  #    - "5000:5000"
+  
