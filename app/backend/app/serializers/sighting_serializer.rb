@@ -11,6 +11,8 @@ class SightingSerializer
     :duration_seconds,
     :duration_string,
     :comments,
+    :city,
+    :state,
     :lonlat
   )
 

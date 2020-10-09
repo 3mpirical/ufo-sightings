@@ -27,6 +27,8 @@ ActiveRecord::Schema.define(version: 2020_10_08_115027) do
   create_table "sightings", force: :cascade do |t|
     t.datetime "sighting_date"
     t.string "shape"
+    t.string "city"
+    t.string "state"
     t.integer "duration_seconds"
     t.string "duration_string"
     t.text "comments"

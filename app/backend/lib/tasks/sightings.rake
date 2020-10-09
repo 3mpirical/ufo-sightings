@@ -17,20 +17,18 @@ namespace :sightings do
     # SmarterCSV has hash_transforms, but the usage is not well documented
     # Traditional mapping has been used for time's sake
     # transform lonlat
-    data.map do |record|
-      latlong = record["site_location_lat/lng".to_sym]
-        .split(" ")
-        .last
-        .delete("(")
-        .delete(")")
-        .split(":")
-
+    data.each do |record|
+      location = record["site_location_lat/lng".to_sym].split(" ")
+      latlong = location.last.delete("(").delete(")").split(":")
       record.delete("site_location_lat/lng".to_sym)
+
       record[:lonlat] = factory.point(latlong[1], latlong[0])
+      record[:state] = location[location.length - 2]
+      record[:city] = location.slice(0..location.length - 3).join(" ")
     end
 
     # transform datetime
-    data.map do |record|
+    data.each do |record|
       record[:sighting_date] = DateTime.strptime(
         record[:sighting_date],
         "%m/%d/%y %H:%M"
