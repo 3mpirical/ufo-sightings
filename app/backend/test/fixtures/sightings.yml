@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  sighting_date: 2020-10-08 11:50:27
+  shape: MyString
+  duration_seconds: 1
+  duration_string: MyString
+  comments: MyText
+  lonlat: 
+
+two:
+  sighting_date: 2020-10-08 11:50:27
+  shape: MyString
+  duration_seconds: 1
+  duration_string: MyString
+  comments: MyText
+  lonlat: 
