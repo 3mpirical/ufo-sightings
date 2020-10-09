@@ -40,9 +40,10 @@ Sightings have: sighting_date, shape, city, state, duration_seconds, duration_st
 The 'lonlat' attribute is of PostGIS's st_point data type with a default srid of 4326. This puts the point on a geographical coordinate system.
 The lonlat attribute has also been indexed for performance.
 
-## Feedback
-I have to admit, I didn't really know what to do with the schemadump.sql file as it relates to a rails app. I thought it was a best practice for ruby/rails schemas should be generated through rails migrations (but tell me if I'm wrong about that).
+I have to admit, I didn't really know what to do with the schemadump.sql file as it relates to a rails app. I thought it was a best practice for ruby/rails schemas should be generated through rails 
+migrations (but tell me if I'm wrong about that).
 
+## Feedback
 I faced a lot of challenges in making this, the biggest of which was just setting up docker. In fact, I spent more time learning about docker than making the project! I've been needing to learn about containerization for another project I want to make, so I welcomed the excuse to get ahead of that. Beside the docker setup, I had good number of difficulties with the write permissions on rails generated files. I read that I can specify user permissions in docker, but with my time constraints I had to just keep going.
 
 My next steps would have been to add rack attack (for rate limiting and throttling), build out the CRUD actions for hotspots, and then get to work on the frontend. I thought up a decent program I wanted to make, but I just ran out of time. I also need to refactor a few files. The rake tasks in particular need to be cleaned up.
@@ -54,9 +55,9 @@ Thanks again for your time!
 ## Resources
 You can find the following resources at..
 
-docker-compose.yml - root directory
-Dockerfile - app/backend/Dockerfile & app/frontend/Dockerfile
-JSON output - app/backend/output/hotspots_with_sightings.json
+* docker-compose.yml - root directory
+* Dockerfile - app/backend/Dockerfile & app/frontend/Dockerfile
+* JSON output - app/backend/output/hotspots_with_sightings.json
 
 ## Setup Commands
 * sudo docker-compose up
@@ -86,19 +87,18 @@ curl http://127.0.0.1:3001/api/sightings/80068
 ```
 
 ### Example Show/Index Requests:
-Requests can be paginated and filtered:
-filters:
-  -shape: string
-  -city: string
-  -state: string
-  -duration_seconds: integer
-  -radius: integer (miles)
-  -latitude: float (required for radius)
-  -longitude: float (required for radius)
-  -limit: integer
-  -page: integer
-  -direction: [asc, desc]
-  -order_by: [created_at, updated_at, duration_seconds, shape, sighting_date]
+Requests can be paginated and filtered by:
+  * shape: string
+  * city: string
+  * state: string
+  * duration_seconds: integer
+  * radius: integer (miles)
+  * latitude: float (required for radius)
+  * longitude: float (required for radius)
+  * limit: integer
+  * page: integer
+  * direction: [asc, desc]
+  * order_by: [created_at, updated_at, duration_seconds, shape, sighting_date]
 
 The index route also sends back the total count of records and the total number of pages
 
