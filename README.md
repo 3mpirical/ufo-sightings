@@ -1,7 +1,7 @@
 # UFO Hotspots 2.0 Directions
 
 ## Overview
-Thanksfor taking the time to look at my work. For this project I tried to use a react frontend (I never got to build it out), rails api backend, and a postgis (postgresql with gis native extension) database. 
+Thanks for taking the time to look at my work! For this project I tried to use a react frontend (I never got to build it out), rails api backend, and a postgis (postgresql with gis native extension) database. 
 
 First I made the requested commands for populating sightings from our CSV file and outputing the json file with sightings by hotspot. The sightings:populate command takes about a minute depending on your hardware, and the sightings:json_by_hotspot command takes about ten seconds. I used the Prallel gem to try and speed the execution of these.
 
