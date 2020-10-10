@@ -41,6 +41,9 @@ gem 'parallel'
 # easy API for parsing CSV files
 gem 'smarter_csv'
 
+# speeds up bulk databse operations
+gem 'activerecord-import'
+
 group :development, :test do
   gem 'pry-rails'
 end

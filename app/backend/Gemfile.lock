@@ -45,6 +45,8 @@ GEM
     activerecord (6.0.3.3)
       activemodel (= 6.0.3.3)
       activesupport (= 6.0.3.3)
+    activerecord-import (1.0.6)
+      activerecord (>= 3.2)
     activerecord-postgis-adapter (6.0.1)
       activerecord (~> 6.0)
       rgeo-activerecord (~> 6.0)
@@ -178,6 +180,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  activerecord-import
   activerecord-postgis-adapter
   bootsnap (>= 1.4.2)
   fast_jsonapi
